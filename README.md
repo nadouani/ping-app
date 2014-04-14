@@ -7,8 +7,8 @@ The Server side app provides a list of REST APIs that both, the Web and Mobile a
 
 This sample is based on the following stack:
 - Play 2 for the server side application
-- A Single Page App based on Yeoman + Grunt + Bower + AngularJS + Twitter Bootstrap
-- A Ionic Framework mobile App
+- A Single Page App based on [Yeoman](yeoman.io) + [GruntJS](http://gruntjs.com/) + [Bower](http://bower.io/) + [AngularJS](http://angularjs.org/) + [Twitter Bootstrap](http://getbootstrap.com/)
+- A [Ionic Framework](http://ionicframework.com/) mobile App
 
 Server side app
 ---------------
