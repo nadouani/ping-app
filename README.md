@@ -19,8 +19,10 @@ It provides:
 
 Web Application
 ---------------
-This part is a simple AngularJS SPA, including an authentication form and a secured list of todos
+This part is a simple AngularJS SPA, including an authentication form and a secured list of todos.
+It has been generated using the [Official Yeoman Angular generator](https://github.com/yeoman/generator-angular)
 
 Mobile Application
 ------------------
 Same as the Web Application, the goal of this component is to show how to share the same server APIs between Web and Mobile apps
+It has been generated using the [Yeoman Ionic generator](https://github.com/diegonetto/generator-ionic) written by [Diego Netto](https://github.com/diegonetto)
