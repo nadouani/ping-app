@@ -1,0 +1,6 @@
+<p>Please authenticate</p>
+<input name="username" type="text" ng-model="credentials.emailAddress" placeholder="Username">
+<input name="password" type="password" ng-model="credentials.password" placeholder="Password">
+<button ng-click="login(credentials)">Login</button>
+
+<p ng-show="error !== null">{{error}}</p>

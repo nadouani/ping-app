@@ -5,6 +5,7 @@ import play.mvc.Action;
 import play.mvc.Http;
 import play.mvc.SimpleResult;
 
+import static play.mvc.Controller.request;
 import static play.mvc.Controller.response;
 
 /**
@@ -18,7 +19,6 @@ public class FilterAction extends Action.Simple {
         // Fake it: Allow all origins
         response().setHeader("Access-Control-Allow-Origin", "*");
 
-        /*
         if(request().getHeader("Access-Control-Request-Headers") != null){
             response().setHeader("Access-Control-Allow-Headers", request().getHeader("Access-Control-Request-Headers"));
         }
@@ -26,7 +26,6 @@ public class FilterAction extends Action.Simple {
         if(request().getHeader("Access-Control-Request-Method") != null){
             response().setHeader("Access-Control-Allow-Method", request().getHeader("Access-Control-Request-Method"));
         }
-        */
 
         return delegate.call(context);
     }

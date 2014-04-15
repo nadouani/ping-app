@@ -30,7 +30,7 @@ public class Authentication extends Controller{
         User user = User.findByEmailAddressAndPassword(login.emailAddress, login.password);
 
         if (user == null) {
-            return unauthorized("Unknown user");
+            return unauthorized("Username or password is incorrect.");
         }
         else {
             String authToken = user.createToken();
@@ -41,11 +41,16 @@ public class Authentication extends Controller{
         }
     }
 
+    @With({SecurityAction.class, FilterAction.class})
+    public static Result user(){
+        return ok(Json.toJson(SecurityAction.getUser()));
+    }
+
     @With(SecurityAction.class)
     public static Result logout() {
         response().discardCookie(SecurityAction.AUTH_TOKEN);
         SecurityAction.getUser().deleteAuthToken();
-        return redirect("/");
+        return ok();
     }
 
     public static class Login {

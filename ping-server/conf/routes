@@ -3,11 +3,11 @@
 # ~~~~
 
 # Home page
-GET            /                    controllers.Application.ping()
-GET            /ping                controllers.Application.ping()
-OPTIONS        /*path               controllers.Application.options(path)
+GET            /              controllers.Application.ping()
+GET            /user          controllers.Authentication.user()
+OPTIONS        /*path         controllers.Application.options(path)
 
-POST           /login               controllers.Authentication.login()
-POST           /logout              controllers.Authentication.logout()
+POST           /login         controllers.Authentication.login()
+POST           /logout        controllers.Authentication.logout()
 
-GET            /todos               controllers.TodoController.getAllTodos()
+GET            /todos         controllers.TodoController.getAllTodos()
