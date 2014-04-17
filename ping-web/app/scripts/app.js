@@ -22,11 +22,6 @@
                     templateUrl: 'views/todos.html',
                     controller: 'TodosCtrl',
                     authenticate: true
-                })
-                .state('about', {
-                    url: '/about',
-                    templateUrl: 'views/about.html',
-                    authenticate: false
                 });
 
             $urlRouterProvider.otherwise('/login');
