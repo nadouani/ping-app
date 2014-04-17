@@ -17,10 +17,28 @@ It provides:
 - an authentication API
 - and one secured API to get a list of todos
 
+##### More
+The application is based on Play 2.2.1
+
+To run it, make sure you have Play 2.2.1 installed and under "/ping-app/ping-server" directory run the following command
+```
+play "run 9999"
+```
+This command will run the application on port 9999
+
 Web Application
 ---------------
 This part is a simple AngularJS SPA, including an authentication form and a secured list of todos.
 It has been generated using the [Official Yeoman Angular generator](https://github.com/yeoman/generator-angular)
+
+To run it, got to "ping-app/ping-web" and run the following command
+
+```
+grunt serve
+```
+
+This will launch the application at [http://localhost:9000](http://localhost:9000)
+
 
 Mobile Application
 ------------------
