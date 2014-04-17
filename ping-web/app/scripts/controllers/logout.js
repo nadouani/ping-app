@@ -3,6 +3,8 @@
 angular.module('pingWebApp')
     .controller('LogoutCtrl', function($scope, $state, $http, AuthService, ServerBaseUrl) {
 
+        $scope.authService = AuthService;
+
         /**
          * Invalidate the token on the server.
          */
@@ -12,14 +14,5 @@ angular.module('pingWebApp')
                 $state.transitionTo('login');
             });
         };
-
-        /**
-         * Checks if a user is logged in
-         *
-         * @returns true is a user is logged in
-         */
-        $scope.isLogged = function() {
-            return AuthService.isLogged;
-        }
 
     });

@@ -5,7 +5,7 @@ angular.module('pingWebApp')
 
         $scope.todos = [];
 
-        $http.get(ServerBaseUrl + '/todos').then(function(response){            
+        $http.get(ServerBaseUrl + '/todos').then(function(response){
             $scope.todos = response.data;
         });
 

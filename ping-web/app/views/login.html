@@ -1,6 +1,10 @@
-<p>Please authenticate</p>
-<input name="username" type="text" ng-model="credentials.emailAddress" placeholder="Username">
-<input name="password" type="password" ng-model="credentials.password" placeholder="Password">
-<button ng-click="login(credentials)">Login</button>
+<form class="form-signin" role="form">
+  <h2 class="form-signin-heading">Please sign in</h2>
 
-<p ng-show="error !== null">{{error}}</p>
+  <div class="alert alert-danger" ng-show="error !== null">{{error}}</div>
+
+  <input type="email" class="form-control" ng-model="credentials.emailAddress" placeholder="Email address" required autofocus>
+  <input type="password" class="form-control" ng-model="credentials.password" placeholder="Password" required>
+
+  <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="login(credentials)">Sign in</button>
+</form>
