@@ -1,10 +1,5 @@
 package models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import play.data.validation.Constraints;
-import play.db.ebean.Model;
-
-import javax.persistence.*;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -12,12 +7,26 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author Nabil Adouani <nabil.adouani@gmail.com>
  * @created 15/04/2014 00:03
  */
 @Entity
 public class User extends Model {
+
+    private static final long serialVersionUID = -32192946598572626L;
 
     @Id
     public Long id;

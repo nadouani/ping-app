@@ -37,6 +37,6 @@
 
             });
         })
-        .constant('ServerBaseUrl', 'http://localhost:9999');
+        .constant('ServerBaseUrl', 'http://localhost:9000');
 
 })();

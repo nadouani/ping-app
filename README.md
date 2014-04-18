@@ -22,9 +22,9 @@ The application is based on Play 2.2.1
 
 To run it, make sure you have Play 2.2.1 installed and under "/ping-app/ping-server" directory run the following command
 ```
-play "run 9999"
+play run
 ```
-This command will run the application on port 9999
+This command will run the application on port 9000
 
 Web Application
 ---------------
@@ -37,7 +37,7 @@ To run it, got to "ping-app/ping-web" and run the following command
 grunt serve
 ```
 
-This will launch the application at [http://localhost:9000](http://localhost:9000)
+This will launch the application at [http://localhost:9001](http://localhost:9001)
 
 
 Mobile Application

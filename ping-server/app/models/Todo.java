@@ -1,14 +1,16 @@
 package models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import play.data.validation.Constraints;
-import play.db.ebean.Model;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.List;
+
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author Nabil Adouani <nabil.adouani@gmail.com>
@@ -16,6 +18,8 @@ import java.util.List;
  */
 @Entity
 public class Todo extends Model {
+
+    private static final long serialVersionUID = -7330211355182769295L;
 
     @Id
     public Long id;
