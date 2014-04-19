@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('pingWebApp')
-        .service('AuthService', function Authservice($http, $state, $cookies, ServerBaseUrl) {
+        .service('AuthService', function Authservice($http, $state, ipCookie, $q, ServerBaseUrl) {
             // AngularJS will instantiate a singleton by calling "new" on this function
 
             return {
@@ -25,7 +25,7 @@
                 resetAuthenticated: function() {
                     this.isLogged = false;
                     this.user = null;
-                    $cookies["XSRF-TOKEN"] = undefined;
+                    ipCookie.remove('XSRF-TOKEN');
                 },
 
                 /**
@@ -40,7 +40,7 @@
 
                 storeAuthToken: function(authToken){
                     // Store the token in a cookie
-                    $cookies['XSRF-TOKEN'] = authToken;
+                    ipCookie('XSRF-TOKEN', authToken);
 
                     // Set the token as default X-AUTH-TOKEN header for all the authenticated calls
                     $http.defaults.headers.common['X-AUTH-TOKEN'] = authToken;
@@ -55,7 +55,7 @@
                 authenticate: function(successState) {
                     var self = this;
 
-                    var token = $cookies["XSRF-TOKEN"];
+                    var token = ipCookie('XSRF-TOKEN');
                     if (token) {
                         $http.get(ServerBaseUrl + "/")
                             .then(

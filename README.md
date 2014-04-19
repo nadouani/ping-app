@@ -44,3 +44,8 @@ Mobile Application
 ------------------
 Same as the Web Application, the goal of this component is to show how to share the same server APIs between Web and Mobile apps
 It has been generated using the [Yeoman Ionic generator](https://github.com/diegonetto/generator-ionic) written by [Diego Netto](https://github.com/diegonetto)
+
+Used community modules
+------------------------
+- [angular-ui-router](https://github.com/angular-ui/ui-router): used instead of default Angular's [ngRoute](https://docs.angularjs.org/api/ngRoute) module
+- [angular-cookie](https://github.com/ivpusic/angular-cookie): a replacement of angular-cookies extension, used to store a cookie with custom options like expiry date

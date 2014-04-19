@@ -3,10 +3,10 @@
 
     angular
         .module('pingWebApp', [
-            'ngCookies',
             'ngResource',
             'ngSanitize',
-            'ui.router'
+            'ui.router',
+            'ivpusic.cookie'
         ])
         .config(function($stateProvider, $urlRouterProvider) {
 

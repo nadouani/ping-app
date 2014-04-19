@@ -2,48 +2,13 @@
     'use strict';
 
     angular.module('pingWebApp')
-        .controller('LoginCtrl', function($scope, $state, $http, $cookies, $q, AuthService, ServerBaseUrl) {
+        .controller('LoginCtrl', function($scope, $state, $http, $q, AuthService, ServerBaseUrl) {
 
             $scope.error = null;
             $scope.credentials = {
                 emailAddress: 'user1@demo.com',
                 password: 'password'
             };
-
-            // Check token cookie and try to authenticate
-            // Otherwise the user has to log in
-            /*
-            var token = $cookies['XSRF-TOKEN'];
-            if (token) {
-                $http.get(ServerBaseUrl + '/')
-                    .then(
-                        function(response) {
-                            // Set the token as default X-AUTH-TOKEN header for all the authenticated calls
-                            $http.defaults.headers.common['X-AUTH-TOKEN'] = token;
-
-                            // Token valid, fetch user data
-                            return $http.get(ServerBaseUrl + '/user');
-                        },
-                        function(response) {
-                            token = undefined;
-                            $cookies['XSRF-TOKEN'] = undefined;
-                            return $q.reject('Token invalid');
-                        }
-                ).then(
-                    function(response) {
-                        // The server returned the connected user
-                        // We store it in the AuthService
-                        $scope.setAuthenticated(response.data);
-
-                        // Redirect to the main user page
-                        $state.transitionTo('todos');
-                    },
-                    function(response) {
-                        // Token invalid or fetching the user failed
-                    }
-                );
-            }
-            */
 
             $scope.setAuthenticated = function(user) {
                 AuthService.setAuthenticated(user);
@@ -89,6 +54,5 @@
             };
 
         });
-
 
 })();
