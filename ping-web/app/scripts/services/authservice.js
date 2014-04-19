@@ -38,9 +38,24 @@
                     this.user = user;
                 },
 
-                storeAuthToken: function(authToken){
+                /**
+                 * Store the authentication token as cookie and define its expiry date
+                 * based on the <code>rememberMe</code> option
+                 *
+                 * @param {String} authToken
+                 * @param {Boolean} rememberMe true to set the expiry date to 1 month
+                 * @returns
+                 */
+                storeAuthToken: function(authToken, rememberMe){
                     // Store the token in a cookie
-                    ipCookie('XSRF-TOKEN', authToken);
+                    ipCookie('XSRF-TOKEN', authToken, rememberMe === true ? { expires: 30 } : {});
+
+                    if(rememberMe === true){
+                        // Add a cookie to store the remember me option
+                        ipCookie('REMEMBER-ME', true, { expires: 30 });
+                    } else {
+                        ipCookie.remove('REMEMBER-ME');
+                    }
 
                     // Set the token as default X-AUTH-TOKEN header for all the authenticated calls
                     $http.defaults.headers.common['X-AUTH-TOKEN'] = authToken;
@@ -61,7 +76,7 @@
                             .then(
                                 function(response) {
                                     // Store the token as default authentication token header
-                                    self.storeAuthToken(token);
+                                    self.storeAuthToken(token, ipCookie('REMEMBER-ME'));
 
                                     // Token valid, fetch user data
                                     return $http.get(ServerBaseUrl + "/user");

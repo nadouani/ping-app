@@ -6,5 +6,9 @@
   <input type="email" class="form-control" ng-model="credentials.emailAddress" placeholder="Email address" required autofocus>
   <input type="password" class="form-control" ng-model="credentials.password" placeholder="Password" required>
 
+  <label class="checkbox">
+    <input type="checkbox" ng-model="rememberMe">Remember me
+  </label>
+
   <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="login(credentials)">Sign in</button>
 </form>

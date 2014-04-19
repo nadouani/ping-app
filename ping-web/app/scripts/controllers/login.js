@@ -2,9 +2,10 @@
     'use strict';
 
     angular.module('pingWebApp')
-        .controller('LoginCtrl', function($scope, $state, $http, $q, AuthService, ServerBaseUrl) {
+        .controller('LoginCtrl', function($scope, $state, $http, $q, ipCookie, AuthService, ServerBaseUrl) {
 
             $scope.error = null;
+            $scope.rememberMe = ipCookie('REMEMBER-ME');
             $scope.credentials = {
                 emailAddress: 'user1@demo.com',
                 password: 'password'
@@ -24,7 +25,7 @@
                             // Credentials are correct, user has been identified
 
                             // Store authentication token in cookie and default header
-                            AuthService.storeAuthToken(response.data['XSRF-TOKEN']);
+                            AuthService.storeAuthToken(response.data['XSRF-TOKEN'], $scope.rememberMe);
 
                             // Get the user and store it in the AuthService
                             return $http.get(ServerBaseUrl + '/user');
